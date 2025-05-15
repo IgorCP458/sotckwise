@@ -1,10 +1,8 @@
-<<<<<<< HEAD
-
 # sotckwise
 
-# Uma plataforma para gerenciar estoques. De maneira simples, fácil e rápida.
+## Uma plataforma para gerenciar estoques. De maneira simples, fácil e rápida.
 
-# React + TypeScript + Vite
+### React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
