@@ -1,4 +1,4 @@
-import { LoginForms } from "@/components/LoginForms"
+import { CadastroForms } from "@/components/CadastroForms"
 import {
   Card,
   CardContent,
@@ -14,16 +14,16 @@ export default function Cadastro () {
     <div className="justify-items-center h-full content-center">
       <Card className="w-full md:w-1/3">
         <CardHeader>
-          <CardTitle><h1 className="text-2xl font-bold mb-1">Login</h1></CardTitle>
+          <CardTitle><h1 className="text-2xl font-bold mb-1">Cadastre-se</h1></CardTitle>
           <CardDescription>
             <p className="text-muted-foreground mb-2">
-              Que bom que você voltou! Após o login você já pode desfrutar dos nossos serviços
+              Vamos criar uma conta! É rápido e fácil!
             </p>
           </CardDescription>
           <Separator/>
         </CardHeader>
         <CardContent>
-          <LoginForms/>
+          <CadastroForms/>
         </CardContent>
       </Card>
 

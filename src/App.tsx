@@ -7,6 +7,7 @@ import Login from "./pages/Login/Login";
 import Stock from "./pages/Stock/Stock";
 import Team from "./pages/Team/Team";
 import { Sidebar } from "./components/Sidebar";
+import Cadastro from "./pages/CadastroUser/Cadastro";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="/produtos" element={<CadastroProdutos />} />
             <Route path="/company" element={<Company />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/cadastro" element={<Cadastro />} />
             <Route path="/stock" element={<Stock />} />
             <Route path="/team" element={<Team />} />
           </Routes>
