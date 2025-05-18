@@ -1,7 +1,26 @@
 import { Separator } from '@/components/ui/separator';
 import BigCard from "../../components/BigCard";
+import { useEffect, useState } from 'react';
 
 export default function Home() {
+  const [stockText, setStockText] = useState("");
+
+  useEffect(() => {
+    fetch("http://localhost:8080/api/stock", {
+      credentials: "include", // se estiver usando cookies
+      method: "POST",
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error("Erro ao carregar dados");
+        return res.json();
+      })
+      .then((data) => setStockText(data.message))
+      .catch((err) => {
+        console.error("Erro ao buscar o texto:", err);
+        setStockText("Erro ao carregar informações.");
+      });
+  }, []);
+
   return (
     <div className="h-full">
       <BigCard>
@@ -11,7 +30,8 @@ export default function Home() {
           Veja os responsáveis, todas as movimentações e relatórios importantes.
         </p>
         <Separator/>
-      </BigCard>
+        <p>{stockText}</p>
+        </BigCard>
     </div>
   );
 }

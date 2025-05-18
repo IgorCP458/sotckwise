@@ -27,22 +27,22 @@ export function LoginForms() {
 
   const [showPassword, setShowPassword] = useState(false)
   const [formError, setFormError] = useState('')
+  
 
-  const navigate = useNavigate();
-
-
-  const { register, handleSubmit, control, formState: { errors } } = useForm<LoginFormsSchema>({
+  const { register, handleSubmit, formState: { errors } } = useForm<LoginFormsSchema>({
     resolver: zodResolver(loginFormsSchema),
   });
 
   async function handleCadastro(data: LoginFormsSchema) {
     try {
         const response = await fetch("http://localhost:8080/api/login-user", {
+        credentials: "include",
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(data),
+        
       })
       if(!response.ok) {
         const result = await response.json()
@@ -51,6 +51,7 @@ export function LoginForms() {
       }
       const result = await response.json()
       console.log(result.message)
+
       setFormError('')
 
 
