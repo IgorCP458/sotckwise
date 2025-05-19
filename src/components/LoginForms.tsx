@@ -1,8 +1,7 @@
 import { Button } from "./ui/button";
-import { Checkbox } from "./ui/checkbox";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label"; 
-import { useForm, Controller } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useState } from "react";
@@ -13,6 +12,7 @@ import {
   AlertTitle,
 } from "@/components/ui/alert"
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
 
 
 const loginFormsSchema = z.object({
@@ -27,6 +27,9 @@ export function LoginForms() {
 
   const [showPassword, setShowPassword] = useState(false)
   const [formError, setFormError] = useState('')
+  const navigate = useNavigate()
+  const { login } = useAuth()
+
   
 
   const { register, handleSubmit, formState: { errors } } = useForm<LoginFormsSchema>({
@@ -49,8 +52,13 @@ export function LoginForms() {
         setFormError(result.message);
         return;
       }
-      const result = await response.json()
-      console.log(result.message)
+      if(response.ok) {
+        const result = await response.json()
+        console.log(result.message)
+        login();
+        navigate('/')
+        
+      }
 
       setFormError('')
 

@@ -8,6 +8,7 @@ import Stock from "./pages/Stock/Stock";
 import Team from "./pages/Team/Team";
 import { Sidebar } from "./components/Sidebar";
 import Cadastro from "./pages/CadastroUser/Cadastro";
+import Prices from "./pages/Prices/Prices";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path="/cadastro" element={<Cadastro />} />
             <Route path="/stock" element={<Stock />} />
             <Route path="/team" element={<Team />} />
+            <Route path="/prices" element={<Prices />} />
           </Routes>
         </main>
       </div>
