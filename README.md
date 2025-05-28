@@ -1,60 +1,52 @@
-# sotckwise
+# 📦 Stockwise
 
-## Uma plataforma para gerenciar estoques. De maneira simples, fácil e rápida.
+Painel para gerenciamento de estoques. Simples de usar, ideal para equipes que desejam organizar melhor seus estoques e aumentar a produtividade.
 
-### React + TypeScript + Vite
+---
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🚀 Funcionalidades
 
-Currently, two official plugins are available:
+- Cadastro e login de usuários com autenticação por JWT
+- Proteção de rotas com middleware
+- Painel para visualização e controle de estoque (em desenvolvimento)
+- Gerenciamento via SPA com React + NodeJS + PostgreSQL
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🔧 Configuração Inicial
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 📁 1. Clone o repositório
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
+```bash
+git clone https://github.com/seu-usuario/stockwise.git
+cd stockwise
+```
+### 📦 2. Instale as dependências
+
+#### Front-end
+
+```bash
+npm install
+```
+#### ✨ Tecnologias Usadas
+ - Node.js com Express
+ - PostgreSQL + Sequelize ORM
+ - ReactJS + Vite
+ - JWT para autenticação
+ - Zod para validação
+ - Context API para controle de sessão no front-end
+
+### ▶️ Rodando o projeto
+Dentro da raíz do projeto, use o comando:
+```bash
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 🛠️ Em Desenvolvimento
+ - Sistema completo de CRUD de estoque
+ - Listagem, edição e movimentação de itens
+- Relatórios e filtros avançados
 
-```js
-// eslint.config.js
-import reactX from "eslint-plugin-react-x";
-import reactDom from "eslint-plugin-react-dom";
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    "react-x": reactX,
-    "react-dom": reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs["recommended-typescript"].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-});
-```
-
-> > > > > > > 40b1505 (chore: Commit inicial)
+### 📬 Contato
+Caso queira contribuir ou tenha dúvidas, entre em contato! 
+email para contato: [i251155@dac.unicamp.br]()
