@@ -9,6 +9,10 @@ import Team from "./pages/Team/Team";
 import { Sidebar } from "./components/Sidebar";
 import Cadastro from "./pages/CadastroUser/Cadastro";
 import Prices from "./pages/Prices/Prices";
+import Solutions from "./pages/Solutions/Solutions";
+import Resources from "./pages/Resources/Resources";
+import Profile from "./pages/Profile/Profile";
+import Subscription from "./pages/Subscription/Subscription";
 
 function App() {
   return (
@@ -27,6 +31,10 @@ function App() {
             <Route path="/stock" element={<Stock />} />
             <Route path="/team" element={<Team />} />
             <Route path="/prices" element={<Prices />} />
+            <Route path="/solutions" element={<Solutions />} />
+            <Route path="/resources" element={<Resources />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/subscription" element={<Subscription />} />
           </Routes>
         </main>
       </div>

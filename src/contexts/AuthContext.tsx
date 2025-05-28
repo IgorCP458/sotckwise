@@ -21,7 +21,6 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
         setIsAuthenticated(data.loggedIn);
       })
       .catch(() => setIsAuthenticated(false));
@@ -29,6 +28,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   const login = () => {
     setIsAuthenticated(true);
+    navigate('/company')
   };
 
   const logout = () => {

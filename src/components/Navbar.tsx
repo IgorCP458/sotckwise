@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import LoginButton from "./ui/LoginButton";
 import { useAuth } from "@/contexts/AuthContext";
+import ProfileButton from "./ui/ProfileButton";
 
 function Navbar() {
 
@@ -23,7 +24,7 @@ function Navbar() {
           <Link to="/company" className="px-4 py-2">
             Minha Empresa
           </Link>
-          <LoginButton></LoginButton>
+          <ProfileButton/>
         </div>
       </div>
     );

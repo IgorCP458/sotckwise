@@ -4,7 +4,7 @@ import { Label } from "./ui/label";
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Eye, EyeOff, AlertCircle } from "lucide-react";
 import {
   Alert,
@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/alert"
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
+import { fetchWithAuth } from "@/utils/fetchWithAuth";
 
 
 const loginFormsSchema = z.object({
@@ -28,7 +29,12 @@ export function LoginForms() {
   const [showPassword, setShowPassword] = useState(false)
   const [formError, setFormError] = useState('')
   const navigate = useNavigate()
-  const { login } = useAuth()
+  const { login, logout } = useAuth()
+
+
+  useEffect(() => {
+    logout()
+  }, [])
 
   
 
@@ -36,42 +42,22 @@ export function LoginForms() {
     resolver: zodResolver(loginFormsSchema),
   });
 
-  async function handleCadastro(data: LoginFormsSchema) {
-    try {
-        const response = await fetch("http://localhost:8080/api/login-user", {
-        credentials: "include",
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data),
-        
-      })
-      if(!response.ok) {
-        const result = await response.json()
-        setFormError(result.message);
-        return;
-      }
-      if(response.ok) {
-        const result = await response.json()
-        console.log(result.message)
-        login();
-        navigate('/')
-        
-      }
+  async function handleLogin(data: LoginFormsSchema) {
+    const response = await fetchWithAuth("http://localhost:8080/api/login-user", {
+      method: "POST",
+      body: JSON.stringify(data),
+    })
 
-      setFormError('')
+    if(response.ok) {
+      login()
+    } else {
+      console.log("Erro no login")
 
-
-    } catch (error) {
-      console.log("Erro no login", error);
-      setFormError("Erro ao conectar com o servidor.");
     }
-    
   }
 
   return(
-    <form onSubmit={handleSubmit(handleCadastro)}>
+    <form onSubmit={handleSubmit(handleLogin)}>
       {formError && (
         <Alert className="mb-4" variant="destructive">
           <AlertCircle className="h-4 w-4" />
